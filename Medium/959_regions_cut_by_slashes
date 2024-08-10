@@ -1,0 +1,64 @@
+"""Reference : https://www.youtube.com/watch?v=j8KrBYIxHK8"""
+class Solution:
+    def print_grid(self,gr):
+        for r in gr:
+            print(r)
+
+    def regionsBySlashes(self, grid: list[str]) -> int:
+        #expand each grid element to 3X3 sub grid
+        #fill 1 where the slashes occupy space
+        rows_orig_len = len(grid)
+        cols_orig_len  = len(grid[0])#note: blackslash will take 1 space; len("\\") -> 1
+        row_len = len(grid)*3
+        cols_len = (len(grid[0]))*3
+        #fill 0 in each at the starting
+        grid_expand =[[0]*cols_len for _ in range(row_len)]
+        # print(f"Initial expanded grid {self.print_grid(grid_expand)}")
+
+        #filling 1 in expanded grid where the slash is coming
+        for r in range(rows_orig_len):
+            for c in range(cols_orig_len):
+                if grid[r][c] == "/":
+                    grid_expand[r*3][(c*3)+2]=1
+                    grid_expand[(r*3)+1][(c*3)+1]=1
+                    grid_expand[(r*3)+2][(c*3)] =1
+                elif grid[r][c] == "\\":
+                    grid_expand[r*3][(c*3)]=1
+                    grid_expand[(r*3)+1][(c*3)+1]=1
+                    grid_expand[(r*3)+2][(c*3)+2] =1
+                # print(f"R: {r} C: {c} Grid: {self.print_grid(grid_expand)}  ")
+        print(f"Grid after filling slash {self.print_grid(grid_expand)}")
+        # we will visit each 0 cell and all the possible surrounding using dfs
+        # the number of cut regions will be equal to the total number of main dfs operaions we do
+        #do not visit already visited 0 cell; do not visit 1 cell
+        #in 1 dfs main operation ; all 0 cell of the same cut region will be visited
+
+        def dfs(r,c):
+            if grid_expand[r][c] == 1:
+                return
+            visited.add((r,c))
+            neighbours = [(r-1,c),(r+1,c),(r,c-1),(r,c+1)]
+            for nr,nc in neighbours:
+                if (nr>=0 and nr < row_len and nc>=0 and nc < cols_len and (nr,nc) not in visited) :#allow valid cell postion to iterate through dfs
+                    dfs(nr,nc)
+
+        visited =set()#contains all the cells postion which all already visited via dfs
+        reg_count =0 #the answer to be returned
+
+        for r in range(row_len):
+            for c in range(cols_len):
+                if grid_expand[r][c] == 0 and (r,c) not in visited:
+                    dfs(r,c)
+                    reg_count+=1
+        return reg_count
+
+
+
+if __name__ == "__main__":
+    s1= Solution()
+    grid1 = [" /","/ "]
+    grid2=[" /","  "]
+    grid3=["/\\","\\/"]
+    print(s1.regionsBySlashes(grid1))
+    print(s1.regionsBySlashes(grid2))
+    print(s1.regionsBySlashes(grid3))
