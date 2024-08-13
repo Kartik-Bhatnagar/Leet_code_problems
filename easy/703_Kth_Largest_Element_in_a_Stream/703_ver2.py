@@ -1,7 +1,7 @@
 #[703. Easy ]Kth Largest Element in a Stream
 #Author : Kartik Bhatnagar
 #Date 12/08/2024
-#V2 we need to optimize with regard to sorting; for every add fxn we are sorting whole list
+
 class KthLargest:
     def binary_search_insert(self,v):
         if len(self.nums) ==0:
