@@ -15,6 +15,9 @@ class Problem():
     def __init__(self) -> None:
         self.problem_category = {"0":"Easy","1":"Medium","2":"Hard"}#new problem folder will be placed under these folder names
         self.take_input()
+        self.create_problem_folder()
+        self.create_problem_txt_file()
+        self.create_problem_py_file()
 
     def take_cat_input(self):
         valid_category = False
@@ -58,15 +61,6 @@ class Problem():
                 print(f"Error occured : {e}")
                 print(retry_stmt)
         return tno
-    
-    def create_problem_txt_file():
-        pass
-    def create_problem_py_file():
-        pass
-
-
-                
-
 
     def format_title(self):
         #replace spaces with underscore
@@ -91,11 +85,58 @@ class Problem():
         #creating folders if it doesn't exist
         os.makedirs(self.problem_folder_path,exist_ok=True)
 
+    def get_inital_txt_content(self):
+        line1 = f"#URL : {self.url}\n"
+        line2=f"Description : "
+        return line1+line2
+        
+    def get_inital_py_content(self):
+        #returns the content to write in python file
+        author ="Kartik Bhatnagar"
+        today_date = str(date.today())
+        line1 = f"#URL : {self.url}\n"
+        line2=f"#[{self.problem_category[self.category]}] [{self.title_num}] \n"
+        line3=f"#Title: [{self.title}]\n"
+        line4=f"#Author: {author}\n"
+        line5=f"#Date : {today_date} (YYYY-MM-DD)\n"
+        return line1+line2+line3+line4+line5
+
+    def create_problem_txt_file(self):
+        try:
+            txt_file_name = f"{self.title_num}_description.txt"
+            txt_file_path = os.path.join(self.problem_folder_path,txt_file_name)
+            try:
+                with open(txt_file_path,"w",encoding="utf-8") as txt_file:
+                    txt_file.write(self.get_inital_txt_content())
+                    print(f"{txt_file_name} is created {txt_file_name}")
+            except Exception as e:
+                print(f"Not able to create {txt_file_name} file")
+                print(f"Exception : {e}")
+        except Exception as e:
+            print(f"create_problem_txt_file function failed")
+            print(f"Exception : {e}")
+
+    def create_problem_py_file(self):
+        try:
+            py_file_name = f"{self.title_num}.py"
+            py_file_path = os.path.join(self.problem_folder_path,py_file_name)
+            try:
+                with open(py_file_path,"a",encoding="utf-8") as txt_file:
+                    txt_file.write(self.get_inital_py_content())
+                    print(f"{py_file_name} is created {py_file_path}")
+            except Exception as e:
+                print(f"Not able to create {py_file_path} file")
+                print(f"Exception : {e}")
+        except Exception as e:
+            print(f"create_problem_py_file function failed")
+            print(f"Exception : {e}")
+        
+        
+    
+
 if __name__ == "__main__":
     print(os.path.abspath(os.path.join(os.getcwd(),"./..")))
     p1 = Problem()
-    p1.show_input()
-    p1.create_problem_folder()
     
 
 
