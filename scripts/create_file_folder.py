@@ -94,12 +94,16 @@ class Problem():
         #returns the content to write in python file
         author ="Kartik Bhatnagar"
         today_date = str(date.today())
-        line1 = f"#URL : {self.url}\n"
-        line2=f"#[{self.problem_category[self.category]}] [{self.title_num}] \n"
-        line3=f"#Title: [{self.title}]\n"
-        line4=f"#Author: {author}\n"
-        line5=f"#Date : {today_date} (YYYY-MM-DD)\n"
-        return line1+line2+line3+line4+line5
+        lines = [ 
+            f"#URL : {self.url}\n",
+            f"#[{self.problem_category[self.category]}] [{self.title_num}] \n",
+            f"#Title: [{self.title}]\n",
+            f"#Author: {author}\n",
+            f"#Date : {today_date} (YYYY-MM-DD)\n",
+            f"\nif __name__ == \"__main__\":\n",
+            "    s=Solution()\n"
+        ]
+        return "".join(lines)
 
     def create_problem_txt_file(self):
         try:
