@@ -23,7 +23,7 @@ class Problem():
         valid_category = False
         print("Enter the category of the problem ")
         valid_inp_cat =[0,1,2]
-        print("Enter either 0 or 1 or 2.\n0 for Easy level problem\n1 for medium level problem or \n3 for hard level problem")
+        print("Enter either 0 or 1 or 2.\n0 for Easy level problem\n1 for medium level problem or \n2 for hard level problem")
         retry_stmt = f"Retry! Please enter the valid value . {valid_inp_cat} are the valid values"
         cat=-1
         while not valid_category:
