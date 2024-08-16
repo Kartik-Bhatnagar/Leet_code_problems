@@ -100,7 +100,7 @@ class Problem():
             f"#Title: [{self.title}]\n",
             f"#Author: {author}\n",
             f"#Date : {today_date} (YYYY-MM-DD)\n",
-            "\nif __name__ == \"__main__\"\n":,
+            f"\nif __name__ == \"__main__\":\n",
             "    s=Solution()\n"
         ]
         return "".join(lines)
