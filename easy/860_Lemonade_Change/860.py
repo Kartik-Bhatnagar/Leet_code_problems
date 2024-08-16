@@ -3,6 +3,7 @@
 #Title: [Lemonade Change]
 #Author: Kartik Bhatnagar
 #Date : 2024-08-15 (YYYY-MM-DD)
+
 class Solution:
     def lemonadeChange(self, bills: list[int]) -> bool:
         #maintain a count of $5 at given point of time
@@ -21,7 +22,7 @@ class Solution:
                         ten-=1
                         five-=1
                 if five <0: #if through out the logic we dont't have sufficient $5 then will return false
-                        return False  
+                    return False  
         return True
                
                 
