@@ -4,6 +4,8 @@
 #Author: Kartik Bhatnagar
 #Date : 2024-08-17 (YYYY-MM-DD)
 
+#Time complexity O(m.n^2) . m->no of rows, n-> no of columns
+# Space complexity O(n.m) 
 #Solution is accepted but time limit is exceeded
 import os
 import time

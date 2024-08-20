@@ -3,7 +3,9 @@
 #Title: [2 Keys Keyboard]
 #Author: Kartik Bhatnagar
 #Date : 2024-08-19 (YYYY-MM-DD)
-#Time complexity : O(n)
+
+#Time complexity : O(n^2)
+#space complexity ; O(n)
 class Solution:
     def minSteps(self, n: int) -> int:
         min_ops = [1000]*(n+1)#intialise each num <= n,with max possible operations
