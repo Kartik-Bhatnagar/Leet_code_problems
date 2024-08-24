@@ -1,0 +1,22 @@
+#if the number length is even; then find the (mid element -1)position element; 
+        #if the mid element is in range(2,8)
+            #case1 : reduce the mid element by 1; #case2: same as it is; #case3: increase the mid element by 1
+            #step obtain number: we will get get a number in all 3 cases which will be of length (n//2), now reverse this number and add(string) it back to itself to form a palindrom for all 3 cases.the resulting number will be called obtained number
+        #if the mid element is 0
+            #case1: take all elements from index [0 to ((n//2)-1)]; reduce the whole by 1
+                #if len of number obtained is of same len before reducing then go to next step
+                # else if the len is decreased then the result will be of length n-1( retured no will be odd)
+                #obtained no =  "9" *(n-1)
+            # case2:mid no. same as 0;case3: increase the mid element by 1
+            #step obtain number: we will get get a number in last 2 cases which will be of length (n//2), now reverse this number and add(string) it back to itself to form a palindrom for last 2 cases.the resulting number will be called obtained number
+        #if the mid element is 1
+            #case1; reduce the mid element by 1 #case2: same as it is
+            #case3;take all elements from index [0 to ((n//2)-1)]; increse the whole by 1
+                #if len of number obtained is of same len before reducing then go to next step
+                # else if the len is increased then the result will be of length n+1( retured no will be odd)
+                #obtained no =  "1"+0 *(n-1)+"1"
+            # find the obtained no for case2 and case3 
+
+        #FINAL STEP for all
+        #compare all 3 obtained numbders; the obtained no. which is not equal to the orignal number and has the min abs distance will be the result
+       
