@@ -12,13 +12,17 @@ class Solution:
             mid_ele = int(n[len(n)//2-1])
             first_half = n[:mid-1]#excluding mid element; it will be added for all 3 cases seperately
             if mid_ele !=0 and mid_ele != 9:
-                #mid is in the range 1 to 8                
+                #mid is in the range 1 to 8 
+                obtained_nos =[] #all palindrom from case 1, 2, 3               
                 c1_half = first_half+str(mid_ele-1)
+                if c1_half =="0":
+                    obtained_nos.append(9)
+                else:
+                    obtained_nos.append(int(c1_half+c1_half[::-1]))
                 c2_half =  first_half+str(mid_ele)
                 c3_half = first_half+str(mid_ele+1)
-                # print(c1_half,c2_half,c3_half)
-                obtained_nos =[] #all palindrom from case 1, 2, 3
-                obtained_nos.append(int(c1_half+c1_half[::-1]))
+                # print(c1_half,c2_half,c3_half)               
+                
                 obtained_nos.append(int(c2_half+c2_half[::-1]))
                 obtained_nos.append(int(c3_half+c3_half[::-1]))
                 # print(obtained_nos)

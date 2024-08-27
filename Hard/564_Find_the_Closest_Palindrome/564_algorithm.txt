@@ -3,15 +3,15 @@
             #case1 : reduce the mid element by 1; #case2: same as it is; #case3: increase the mid element by 1
             #step obtain number: we will get get a number in all 3 cases which will be of length (n//2), now reverse this number and add(string) it back to itself to form a palindrom for all 3 cases.the resulting number will be called obtained number
         #if the mid element is 0
-            #case1: take all elements from index [0 to ((n//2)-1)]; reduce the whole by 1
-                #if len of number obtained is of same len before reducing then go to next step
+            #case1: take all elements from index [0 to ((n//2))]; reduce the whole by 1
+                #if len of number obtained is of same len before reducing then the obtained number will mirroring the first_half number subtracting by 1 
                 # else if the len is decreased then the result will be of length n-1( retured no will be odd)
                 #obtained no =  "9" *(n-1)
             # case2:mid no. same as 0;case3: increase the mid element by 1
             #step obtain number: we will get get a number in last 2 cases which will be of length (n//2), now reverse this number and add(string) it back to itself to form a palindrom for last 2 cases.the resulting number will be called obtained number
-        #if the mid element is 1
+        #if the mid element is 9
             #case1; reduce the mid element by 1 #case2: same as it is
-            #case3;take all elements from index [0 to ((n//2)-1)]; increse the whole by 1
+            #case3;take all elements from index [0 to ((n//2))]; increse the whole by 1
                 #if len of number obtained is of same len before reducing then go to next step
                 # else if the len is increased then the result will be of length n+1( retured no will be odd)
                 #obtained no =  "1"+0 *(n-1)+"1"
