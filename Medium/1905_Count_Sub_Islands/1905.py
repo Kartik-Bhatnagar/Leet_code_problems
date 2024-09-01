@@ -70,4 +70,4 @@ if __name__ == "__main__":
         grid2 = eval(r.read())
     print(s.countSubIslands( grid1,grid2))
     t2=time.time()
-    print(f"Time taken {t2-t1} seconds")
+    print(f"Time taken {t2-t1} seconds") #90 sec
