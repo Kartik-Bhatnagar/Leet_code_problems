@@ -9,7 +9,7 @@ Return an m x n 2D array constructed according to the above procedure, or an emp
 
 Example 1:
 
-[!example1](https://assets.leetcode.com/uploads/2021/08/26/image-20210826114243-1.png)
+![example1](https://assets.leetcode.com/uploads/2021/08/26/image-20210826114243-1.png)
 
 
 
