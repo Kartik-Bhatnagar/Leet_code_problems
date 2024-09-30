@@ -18,6 +18,7 @@ class Problem():
         self.create_problem_folder()
         self.create_problem_txt_file()
         self.create_problem_py_file()
+        self.open_created_folder()
 
     def take_cat_input(self):
         valid_category = False
@@ -84,6 +85,13 @@ class Problem():
         self.problem_folder_path = os.path.join(self.folder_category_path,folder_name)
         #creating folders if it doesn't exist
         os.makedirs(self.problem_folder_path,exist_ok=True)
+    
+    def open_created_folder(self):
+        try:
+            os.startfile(self.problem_folder_path)
+            print(f"Folder '{self.problem_folder_path}' opened successfully.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
     def get_inital_txt_content(self):
         line1 = f"#URL : {self.url}\n"
